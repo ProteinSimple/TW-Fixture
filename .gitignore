@@ -1,0 +1,6 @@
+###Hide Log Files
+/Logs/*
+/Reports/*
+### Hide excel files
+*.csv
+*xlsx
