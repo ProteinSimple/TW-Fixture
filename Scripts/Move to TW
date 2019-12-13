@@ -1,0 +1,25 @@
+
+[Value]
+MGI RWA Section Options=2.0.1 %04Y%02m%02d %02H%02M%S%25u*~|.%d*~|.,*~|.%#_13g
+Value=<1>
+Value 0.Cluster.Step=1
+Value 0.Cluster.Step En=TRUE
+Value 0.Cluster.Valve=Bottle 1
+Value 0.Cluster.Syr.Amount=0
+Value 0.Cluster.Syr.Rate=0
+Value 0.Cluster.direction=withdraw
+Value 0.Cluster.Move Type=Rel
+Value 0.Cluster.Pump En=FALSE
+Value 0.Cluster.Drain Valve=Well 1
+Value 0.Cluster.Drain En=FALSE
+Value 0.Cluster.Peristaltic=FALSE
+Value 0.Cluster.Peristaltic En=FALSE
+Value 0.Cluster.Vac1=FALSE
+Value 0.Cluster.Vac2=FALSE
+Value 0.Cluster.Vac3=FALSE
+Value 0.Cluster.Vac4=FALSE
+Value 0.Cluster.Vacuum En=FALSE
+Value 0.Cluster.Move Abs=65
+Value 0.Cluster.Motion En=TRUE
+Value 0.Cluster.Delay(s)=0
+Value 0.Cluster.Delay En=FALSE

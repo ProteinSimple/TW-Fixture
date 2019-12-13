@@ -1,0 +1,9 @@
+
+[Value]
+MGI RWA Section Options=2.0.1 %04Y%02m%02d %02H%02M%S%25u*~|.%d*~|.,*~|.%#_13g
+Value=<1>
+Value 0.Wash Step.Reagent=H2O
+Value 0.Wash Step.Bottle=Bottle 4
+Value 0.Wash Step.Wash Time(s)=20
+Value 0.Wash Step.Dwell Time(s)=0
+Value 0.Wash Step.# of Rinses=1

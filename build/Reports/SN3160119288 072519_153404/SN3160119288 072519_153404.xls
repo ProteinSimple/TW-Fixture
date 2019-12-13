@@ -1,0 +1,18 @@
+Cartridge SN	3160119288
+Operator	
+StationID	Fixture 1
+SW Version	0.1.0
+Primed before run	TRUE
+Start time	7/25/2019   3:15 PM
+Finish time	7/25/2019   3:34 PM
+Vacuum Test	-19.4
+Leak Test	0.0208
+Cartridge Pass/Fail	Pass
+
+Test before reagent
+vacuum	leak rate(air)	leak rate(liquid)	delta	Vac Pass/Fail	Transition Pass/Fail
+-19.3	0.00271	0.01412	0.01141	TRUE	TRUE
+-19.4	0.00257	0.01411	0.01154	TRUE	TRUE
+-19.5	0.00247	0.01463	0.01216	TRUE	TRUE
+-19.6	0.00246	0.01443	0.01197	TRUE	TRUE
+-19.5	0.00216	0.01405	0.01188	TRUE	TRUE
