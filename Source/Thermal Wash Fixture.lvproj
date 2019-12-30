@@ -77,7 +77,9 @@
 		</Item>
 		<Item Name="Cartridge Mngr.vi" Type="VI" URL="../Main/Cartridge Mngr.vi"/>
 		<Item Name="DAQ - Initialize.vi" Type="VI" URL="../Hardware/DAQ/DAQ - Initialize.vi"/>
+		<Item Name="Denkovi Manager.vi" Type="VI" URL="../Hardware/Denkovi Manager.vi"/>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
+		<Item Name="Timing Specs.ctl" Type="VI" URL="../Main/Timing Specs.ctl"/>
 		<Item Name="Utilities.lvlib" Type="Library" URL="../Lib/Utilities.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
@@ -402,7 +404,6 @@
 			<Item Name="Delay with Cancel 2.vi" Type="VI" URL="../Lib/Time/Delay with Cancel 2.vi"/>
 			<Item Name="Delay with Error Handling.vi" Type="VI" URL="../Lib/Time/Delay with Error Handling.vi"/>
 			<Item Name="Delete Number of Lines.vi" Type="VI" URL="../Lib/String/Delete Number of Lines.vi"/>
-			<Item Name="Denkovi Manager.vi" Type="VI" URL="../Hardware/Denkovi Manager.vi"/>
 			<Item Name="Denkovi Mngr.ctl" Type="VI" URL="../Hardware/Denkovi Mngr.ctl"/>
 			<Item Name="Detect Transition to Load.vi" Type="VI" URL="../Main/Detect Transition to Load.vi"/>
 			<Item Name="Detect Transition to TW.vi" Type="VI" URL="../Main/Detect Transition to TW.vi"/>
