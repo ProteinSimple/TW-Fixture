@@ -505,10 +505,10 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{FDCDB119-5545-4221-AC6D-7513A6C3674A}</Property>
-				<Property Name="Bld_version.build" Type="Int">44</Property>
+				<Property Name="Bld_version.build" Type="Int">46</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
-				<Property Name="Destination[0].destName" Type="Str">TW Fixture GUI.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">../build/TW Fixture GUI.exe</Property>
+				<Property Name="Destination[0].destName" Type="Str">TW Fixture GUI 1_1_4.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../build/TW Fixture GUI 1_1_4.exe</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
@@ -529,7 +529,7 @@
 				<Property Name="Destination[6].path" Type="Path">../build/Python</Property>
 				<Property Name="Destination[6].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="DestinationCount" Type="Int">7</Property>
-				<Property Name="Source[0].itemID" Type="Str">{4B4ADACF-38C1-4502-B0FA-86E0E68A49A0}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{0CC0B43D-FE96-45F4-BD77-B2DC8AADBB75}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -590,7 +590,7 @@
 				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2019 ProteinSimple, Bio-Techne</Property>
 				<Property Name="TgtF_productName" Type="Str">Thermal Wash Fixture</Property>
 				<Property Name="TgtF_targetfileGUID" Type="Str">{48132B5A-D45B-4044-9074-BE16A5D5F942}</Property>
-				<Property Name="TgtF_targetfileName" Type="Str">TW Fixture GUI.exe</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">TW Fixture GUI 1_1_4.exe</Property>
 				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
 			</Item>
 			<Item Name="Thermal Wash Installer" Type="Installer">
