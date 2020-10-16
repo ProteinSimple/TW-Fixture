@@ -81,6 +81,7 @@
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="Timing Specs.ctl" Type="VI" URL="../Main/Timing Specs.ctl"/>
 		<Item Name="Utilities.lvlib" Type="Library" URL="../Lib/Utilities.lvlib"/>
+		<Item Name="Zaber Manager.vi" Type="VI" URL="../Hardware/Zaber Manager.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="MGI Caller&apos;s VI Reference.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI VI Reference/MGI Caller&apos;s VI Reference.vi"/>
@@ -488,7 +489,6 @@
 			<Item Name="Write Data.vi" Type="VI" URL="../File/Write Data.vi"/>
 			<Item Name="Zaber A Series.lvlib" Type="Library" URL="../Hardware/Zaber/Zaber A Series.lvlib"/>
 			<Item Name="Zaber Controls.ctl" Type="VI" URL="../Main/Zaber Controls.ctl"/>
-			<Item Name="Zaber Manager.vi" Type="VI" URL="../Hardware/Zaber Manager.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Thermal Wash Fixture" Type="EXE">
