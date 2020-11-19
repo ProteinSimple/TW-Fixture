@@ -4,9 +4,10 @@ from __future__ import print_function
 from pprint import pprint
 import sys
 
-import apdu
-import nfc_comm
-from scard_wrapper import NFCException
+import smartcard.scard as sc
+from nfc import apdu, nfc_comm
+from nfc import scard_wrapper as scw
+#from scard_wrapper import NFCException
 
 def main(serial):
     # Get Reader Objects
@@ -28,26 +29,29 @@ def main(serial):
     conn.disconnect()
     return(data)
 
-
-def print_sep():
-    print('-' * 60)
-
-
-def hex2(val):
-    return '{0:02x}'.format(val)
+def decode_value(value):
+    return ''.join(chr(i) for i in value)
 
 def get_reader_with_serial(nfc, readers, serial):
     for reader in readers:
         if 'SCM Microsystems' in reader:
             try:
                 conn = nfc_comm.Connection(nfc, reader)
+                currentSerial = scw.get_attrib(conn.hcard, sc.SCARD_ATTR_VENDOR_IFD_SERIAL_NO)
                 if conn.serial == serial:
                     return conn
                 else:
                     conn.disconnect()
-            except NFCException as nfce:
+            except scw.NFCException as nfce:
                 continue
     return('The specified reader was either not found, or did not read a card.')
+
+def get_attrib(hcard, dwAttrId):
+    rv, attrib = sc.SCardGetAttrib(hcard, dwAttrId)
+    if rv == sc.SCARD_S_SUCCESS:
+        return decode_value(attrib)
+    else:
+        raise scw.NFCException(rv)
 
 if __name__ == '__main__':
     sys.exit(main(0))
