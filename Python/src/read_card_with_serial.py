@@ -1,7 +1,7 @@
 from __future__ import absolute_import
 from __future__ import print_function
 import sys
-sys.path.append('python/src/nfc')
+sys.path.append('C:\\Users\\ellery.wong\\Documents\\GitHub\\TW-Fixture\\Python\\src\\nfc')
 import smartcard.scard as sc
 from nfc import apdu, nfc_comm
 from nfc import scard_wrapper as scw
@@ -27,6 +27,7 @@ def main(serial):
 
     data = str(nfc_comm.NTAG203(conn).dic)
     conn.disconnect()
+    nfc.close()
     return(data)
 
 def decode_value(value):
@@ -37,8 +38,8 @@ def get_reader_with_serial(nfc, readers, serial):
         if 'SCM Microsystems' in reader:
             try:
                 conn = nfc_comm.Connection(nfc, reader)
-                currentSerial = scw.get_attrib(conn.hcard, sc.SCARD_ATTR_VENDOR_IFD_SERIAL_NO)
-                if conn.serial == serial:
+                currentSerial = get_attrib(conn.hcard, sc.SCARD_ATTR_VENDOR_IFD_SERIAL_NO)
+                if currentSerial == serial:
                     return conn
                 else:
                     conn.disconnect()
