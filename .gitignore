@@ -7,4 +7,4 @@
 *.zip
 ### Hide development settings
 .vscode/*
-*/__pycache__/*
+*/__pycache__
