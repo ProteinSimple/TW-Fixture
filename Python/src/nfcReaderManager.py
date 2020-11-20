@@ -1,71 +1,56 @@
-import logging
 import sys
-
-import smartcard.scard as sc
-
-from helpers import change_char
-import nfc
-import nfc.packet as packet
+import os
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'nfc'))
+from smartcard import scard as sc
 from nfc import nfc_comm as nfc_comm
 from nfc import scard_wrapper as scw
 
 
-class nfcReaderManager(object):
-    reader = None
-
+class nfcReaderManager(object):  
     def __init__(self):
         self.nfc = nfc_comm.NFC()
-        self.__connect()
 
-    def __del__(self):
-        self.close()
 
     def close(self):
         self.nfc.close()
 
-    def __connect(self):
-        '''Look for all available readers and return the correct one'''
-        readers = self.nfc.get_readers()
-        if len(readers) == 0:
-            self.logger.debug('No Readers Available')
-        for reader in readers:
-            if 'SCM Microsystems' in reader:
-                self.logger.info(f'Found reader with ID: {reader}')
-                self.reader = reader
-                return
-        self.reader = None
 
-    def getTag(self):
-        '''Return a tag if it is available'''
-        with nfc_comm.Connection(self.nfc, self.reader) as conn:
-            return nfc_comm.maybe_tag(conn)
+    def __del__(self):
+        self.close()
 
-    def read(self):
-        '''Obtain Tag Data.  Returns None if no data is present'''
-        data = self.getTag()
-        if data:
-            data = data.dic
-        return data
 
-    def reconnect(self):
-        '''Look for all available readers and return the correct one'''
-        self.reestablishConnection()
-        readers = self.nfc.get_readers()
-        for reader in readers:
-            if 'SCM Microsystems' in reader:
-                self.reader = reader
-                return
-        self.reader = None
+    def __enter__(self):
+        self.readers = self.nfc.get_readers()
 
-    def reestablishConnection(self):
-        self.nfc = nfc_comm.NFC()
-        self.reader = None
 
-    def status(self):
-        '''Check if reader has a card'''
-        if self.isAvailable():
-            status = nfc_comm.ReaderStatus(self.nfc.get_status_change()[0])
-            return status.is_card_present()
+    def __exit__(self, type_, value, traceback):
+        self.close()
+    
+
+    def decode_value(value):
+        return ''.join(chr(i) for i in value)
+
+
+    def get_attrib(hcard, dwAttrId):
+        rv, attrib = sc.SCardGetAttrib(hcard, dwAttrId)
+        if rv == sc.SCARD_S_SUCCESS:
+            return decode_value(attrib)
         else:
-            return False
+            raise scw.NFCException(rv)
 
+
+    def read_card_with_serial(self, serial):
+        for reader in self.readers:
+            if 'SCM Microsystems' in reader:
+                try:
+                    with nfc_comm.Connection(self.nfc, reader) as conn:
+                        currentSerial = get_attrib(conn.hcard, sc.SCARD_ATTR_VENDOR_IFD_SERIAL_NO)
+                        if currentSerial == serial:
+                            tag = nfc_comm.maybe_tag(conn)
+                            if tag is none:
+                                return('Cartridge not detected.')
+                            else:
+                                return(str(tag.dic))
+                except scw.NFCException as nfce:
+                    continue
+        return('The specified reader was not detected.')

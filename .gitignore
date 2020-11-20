@@ -1,7 +1,10 @@
-###Hide Log Files
+### Hide Log Files
 /Logs/*
 /Reports/*
 ### Hide excel files and zip files
 *.csv
 *xlsx
 *.zip
+### Hide development settings
+.vscode/*
+*/__pycache__/*
