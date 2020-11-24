@@ -1,3 +1,4 @@
-import read_card_with_serial as test
+import read_card_with_serial as reader
 
-print(test.main('52541737200872'))
+serial = '52541737200872'
+print(reader.main(serial))
