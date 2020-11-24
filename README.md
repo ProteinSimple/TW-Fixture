@@ -1,11 +1,16 @@
 # ThermalWashFixture
 This contains labview code for production Thermal Wash Fixture
 
+
 # Python Setup
 ## Dependencies
-Python 3.8.6 32-bit (x86) [[Download](https://www.python.org/ftp/python/3.8.6/python-3.8.6.exe)] [[Repository](https://www.python.org/downloads/windows/)]
+**SCM NFC Reader Drivers** [Available in Python/Dependencies]
 
-Pyscard (Environment: PYTHON=C:\Python38, PYTHON_VERSION=3.8.x, PYTHON_ARCH=32) [[Repository](https://ci.appveyor.com/project/LudovicRousseau/pyscard)]
+Run the installer and restart when you are done.
+
+**Python 3.8.6 32-bit (x86)** [[Download](https://www.python.org/ftp/python/3.8.6/python-3.8.6.exe)] [[Repository](https://www.python.org/downloads/windows/)]
+
+**Pyscard (Environment: PYTHON=C:\Python38, PYTHON_VERSION=3.8.x, PYTHON_ARCH=32)** [[Repository](https://ci.appveyor.com/project/LudovicRousseau/pyscard)]
 
 Installers should be saved in Python/Dependencies
 
