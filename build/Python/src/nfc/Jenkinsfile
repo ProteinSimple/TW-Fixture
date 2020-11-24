@@ -1,0 +1,73 @@
+pipeline {
+    // We use the label "docker" to mean the the host has docker installed and
+    // the Jenkins user can run docker commands without sudo.
+    agent { label 'docker' }
+    stages {
+        // We wouldn't even need a checkout stage, except that a clean checkout
+        // isn't the default. So, this stage just passes along the scm
+        // variables, adding the CleanCheckout option.
+        // https://support.cloudbees.com/hc/en-us/articles/226122247-How-to-Customize-Checkout-for-Pipeline-Multibranch-?page=44
+        stage ('Checkout') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: scm.branches,
+                    extensions: scm.extensions + [[$class: 'CleanCheckout']],
+                    userRemoteConfigs: scm.userRemoteConfigs
+                ])
+            }
+        }
+        stage ('Build 14.04') {
+            steps {
+                sh """
+                mkdir -p trusty_debs
+                ./build-deb -v trusty-20190305 trusty_debs
+                """
+                archiveArtifacts(
+                    allowEmptyArchive: false,
+                    artifacts: 'trusty_debs/*.deb',
+                    caseSensitive: true,
+                    defaultExcludes: true,
+                    fingerprint: true,
+                    onlyIfSuccessful: true
+                )
+            }
+        }
+        stage ('Build 18.04') {
+            steps {
+                sh """
+                mkdir -p bionic_debs
+                ./build-deb -v bionic-20190307 bionic_debs
+                """
+                archiveArtifacts(
+                    allowEmptyArchive: false,
+                    artifacts: 'bionic_debs/*.deb',
+                    caseSensitive: true,
+                    defaultExcludes: true,
+                    fingerprint: true,
+                    onlyIfSuccessful: true
+                )
+            }
+        }
+        stage ('Extract Test Reports') {
+            steps {
+                junit '**/test_report.xml'
+            }
+        }
+    }
+
+    post {
+        failure {
+            slackSend channel: '#latona',
+                color: 'bad',
+                message: "${currentBuild.fullDisplayName}: Failure. <${env.BUILD_URL} | Details >"
+        }
+        fixed {
+            slackSend channel: '#latona',
+                color: 'good',
+                message: "${currentBuild.fullDisplayName}: Back to normal. <${env.BUILD_URL} | Details >"
+        }
+    }
+}
+// Tell vim that this is a groovy file.
+// vim: set syntax=groovy:

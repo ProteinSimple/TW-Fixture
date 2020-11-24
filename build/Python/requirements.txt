@@ -1,8 +1,4 @@
-pytz==2019.1
-pyscard==1.9.8
-six==1.12.0
-txtorcon==19.0.0
-requests==2.21.0
-more_itertools==6.0.0
-python_dateutil==2.8.0
-Twisted==19.2.0
+more-itertools==8.6.0
+pyscard==2.0.0
+tzlocal==2.1
+six==1.14.0

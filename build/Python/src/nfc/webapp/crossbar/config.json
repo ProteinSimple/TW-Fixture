@@ -1,0 +1,84 @@
+{
+    "version": 2,
+    "controller": {},
+    "workers": [
+        {
+            "type": "router",
+            "options": {
+                "pythonpath": [
+                    ".."
+                ]
+            },
+            "realms": [
+                {
+                    "name": "nfc_realm",
+                    "roles": [
+                        {
+                            "name": "anonymous",
+                            "permissions": [
+                                {
+                                    "uri": "",
+                                    "match": "prefix",
+                                    "allow": {
+                                        "call": true,
+                                        "register": true,
+                                        "publish": true,
+                                        "subscribe": true
+                                    },
+                                    "disclose": {
+                                        "caller": false,
+                                        "publisher": false
+                                    },
+                                    "cache": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "transports": [
+                {
+                    "type": "web",
+                    "endpoint": {
+                        "type": "tcp",
+                        "port": 8085,
+                        "interface": "127.0.0.1"
+                    },
+                    "paths": {
+                        "/": {
+                            "type": "static",
+                            "directory": "/usr/share/nfc/webapp/static"
+                        },
+                        "ws": {
+                            "type": "websocket"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "options": {
+                "pythonpath": [
+                    ".."
+                ]
+            },
+            "components": [
+                {
+                    "type": "class",
+                    "classname": "nfc.server.NFCComponent",
+                    "realm": "nfc_realm",
+                    "transport": {
+                        "type": "websocket",
+                        "endpoint": {
+                            "type": "tcp",
+                            "host": "127.0.0.1",
+                            "port": 8085
+                        },
+                        "url": "ws://127.0.0.1:8085/ws"
+                    }
+                }
+            ]
+        }
+    ]
+}
