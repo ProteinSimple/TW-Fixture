@@ -192,5 +192,5 @@ See http://www.zaber.com/wiki/Software/ASCII_Labview_Driver for more information
 		<Item Name="Write.vi" Type="VI" URL="../Private/Write.vi"/>
 		<Item Name="Validate Checksum.vi" Type="VI" URL="../Private/Validate Checksum.vi"/>
 	</Item>
-	<Item Name="Zaber A Series Readme.html" Type="Document" URL="/&lt;instrlib&gt;/Zaber A Series/Zaber A Series Readme.html"/>
+	<Item Name="Zaber A Series Readme.html" Type="Document" URL="../Zaber A Series Readme.html"/>
 </Library>
