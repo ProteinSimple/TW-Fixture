@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Build a single package with a timestamp-based version number.
+set -o errexit
+set -o nounset
+set -o xtrace
+
+THIS_DIR="$( cd "$( dirname "$0" )" && pwd )"
+
+setup_debian_symlink() {
+    # If there's a debian/ directory, do nothing.
+    # Otherwise, setup a debian symlink point to something
+    # like "trusty_debian" or "bionic_debian".
+    #
+    # If no debian/ directory, and you can't create a symlink,
+    # then the failure of the link command should trigger errexit.
+    code_name="$1"
+    link_name="${THIS_DIR}/debian"
+    if [[ -d "$link_name" && (! -L "$link_name") ]]; then
+        exit 0
+    fi
+    target="${code_name}_debian"
+    rm -f "$link_name"
+    if [ ! -d "$target" ]; then
+        exit 1
+    fi
+    ln -s "$target" "$link_name"
+}
+
+setup_requirements_symlink() {
+    code_name="$1"
+    link_name="${THIS_DIR}/requirements.txt"
+    if [[ -f "$link_name" && (! -L "$link_name") ]]; then
+        exit 0
+    fi
+    target="requirements_${code_name}.txt"
+    rm -f "$link_name"
+    if [ ! -f "$target" ]; then
+        exit 1
+    fi
+    ln -s "$target" "$link_name"
+
+}
+
+setup_debian_symlink "$@"
+setup_requirements_symlink "$@"

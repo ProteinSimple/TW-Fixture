@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Run the unit tests in containers with the shipping dependencies.
+#
+# This script is just a reminder that the easiest and most foolproof way to run
+# the tests is to run them in containers. The tests are run this way as part of
+# the build.
+#
+# Of course, this is not a fast way to run the tests.
+#
+# If you're doing significant development, and you want to run the tests
+# quickly, you'll want to edit the code and run the tests in the same
+# environment, which probably means creating a virtualenv with the appropriate
+# dependencies. However, for a number of reasons, this is often not as easy as
+# it sounds.
+#
+# Some of the difficulties are:
+# - Python extensions that have significant build dependencies of their own
+# - incompatibilities between versions of pip, setuptools, and
+#   individual libraries.
+
+set -o errexit
+set -o nounset
+set -o xtrace
+
+mkdir -p trusty_debs
+./build-deb trusty-20190305 trusty_debs
+
+mkdir -p bionic_debs
+./build-deb bionic-20190307 bionic_debs

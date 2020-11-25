@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+set -o xtrace
+
+usage() {
+    echo "Usage: $0 [-v] DOCKER_TAG"
+    echo "DOCKER_TAG           e.g. trusty-20190305, bionic-20190307"
+    echo "-v            verbose logging"
+}
+
+while getopts "hv" flag
+do
+    case $flag in
+    h)
+        usage
+        exit 1
+        ;;
+    v)
+        set -o xtrace
+        export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+        ;;
+    \?)
+        # If getopts detects an invalid argument, it assigns flag to '?'.
+        usage
+        exit 1
+    esac
+done
+shift "$((OPTIND - 1))"
+
+if [ $# -lt 1 ]; then
+    echo "You did not supply enough arguments to $0."
+    usage
+    exit 1
+fi
+
+docker_tag="$1"
+distribution=$(echo "$docker_tag" | cut -d'-' -f1)
+wheel_dir=${distribution}_wheels
+
+project=$(basename "$PWD" | awk '{print tolower($0)}')
+githash=$(git log -1 --pretty=%h)
+tag="${docker_tag}-${project}-${githash}-$$"
+image="${tag}.img"
+container="${tag}.container"
+
+# Remove requirements.txt as we will generate a new one.
+rm -f requirements.txt
+
+docker build \
+    --build-arg docker_tag="$docker_tag" \
+    --build-arg distribution="$distribution" \
+    --file build_wheels.Dockerfile \
+    --no-cache \
+    --tag "${image}" \
+    .
+
+docker create --name "${container}" "${image}"
+docker cp "${container}":/workdir/requirements.txt "requirements_${distribution}.txt"
+docker cp "${container}":/workdir/"${wheel_dir}"/. "$wheel_dir"
+docker rm -fv "${container}"

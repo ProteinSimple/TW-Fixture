@@ -1,0 +1,8 @@
+[Unit]
+Description=Maurice NFC Tag Editor
+Conflicts=nfc.service
+
+[Service]
+Type=simple
+User=cbuser
+ExecStart=/usr/share/nfc/bin/crossbar start --cbdir /home/cbuser/cellbio/nfc/crossbar --config cartridge_editor.json

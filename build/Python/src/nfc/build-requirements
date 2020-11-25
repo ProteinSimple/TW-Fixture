@@ -1,0 +1,22 @@
+#!/bin/sh
+set -o errexit
+set -o nounset
+set -o xtrace
+
+# Create first virtualenv for pip to run in.
+rm -rf venv-build-requirements
+virtualenv --python /usr/bin/python2 venv-build-requirements
+. ./venv-build-requirements/bin/activate
+
+pip install \
+    --disable-pip-version-check \
+    --isolated \
+    --ignore-installed \
+    -r requirements-to-freeze.txt
+
+pip freeze \
+    --disable-pip-version-check \
+    --isolated \
+    -r requirements-to-freeze.txt \
+    | grep -v pkg-resources \
+    > requirements.txt

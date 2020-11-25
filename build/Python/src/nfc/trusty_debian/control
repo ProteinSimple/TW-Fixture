@@ -1,0 +1,20 @@
+Source: nfc
+Section: embedded
+Priority: optional
+Maintainer: Mark Kohler <mark.kohler@proteinsimple.com>
+Build-Depends: debhelper (>= 8.0.0),
+ libffi-dev,
+ libpcsclite-dev,
+ libssl-dev,
+ libyaml-dev,
+ nodejs,
+ nodejs-legacy,
+ python2.7-dev,
+ swig (>= 2),
+Standards-Version: 3.9.4
+Homepage: https://github.com/ProteinSimple/nfc
+
+Package: nfc
+Architecture: all
+Depends: ${misc:Depends}
+Description: NFC daemon

@@ -1,0 +1,3 @@
+[submodule "Python/src/nfc"]
+	path = Python/src/nfc
+	url = https://github.com/ProteinSimple/nfc.git

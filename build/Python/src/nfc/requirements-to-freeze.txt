@@ -1,0 +1,17 @@
+autobahn[twisted,serialization]
+coverage
+crossbar==18.4.1
+flake8
+more-itertools
+nose
+pip
+pylint
+pyscard
+python-dateutil
+pytz
+setuptools
+txaio
+virtualenv
+wheel
+zope.interface
+tzlocal

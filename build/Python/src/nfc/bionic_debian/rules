@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+export DH_VERBOSE=1
+
+export DH_VIRTUALENV_INSTALL_ROOT=/usr/share
+
+%:
+	dh $@ --with python-virtualenv
+
+# Tell the compressor to go faster.
+override_dh_builddeb:
+	dh_builddeb -- -z1
+
+# Make builds repeatable.
+override_dh_virtualenv:
+	dh_virtualenv \
+		--extra-pip-arg "--find-links" \
+		--extra-pip-arg "bionic_wheels" \
+		--extra-pip-arg "--ignore-installed" \
+		--extra-pip-arg "--no-deps" \
+		--extra-pip-arg "--no-index" \
+		--extra-pip-arg "--verbose" \
+		--extra-pip-arg "--verbose" \
+		--extra-pip-arg "--verbose" \
+		--extra-virtualenv-arg "--never-download" \
+		--python /usr/bin/python2 \
+		--verbose \
+
+
+override_dh_installinit:
+	dh_installinit --name=nfc
+	dh_installinit --name=cartridge_editor
