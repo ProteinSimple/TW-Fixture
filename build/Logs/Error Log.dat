@@ -8,3 +8,8 @@
 27/12/19 17:02:28 - Log Started
 27/12/19 17:02:28 - Log Started
 17:02:32	-	  code -200088: DAQmx Stop Task.vi:3590001<append>
+29/01/21 16:40:39 - Log Started
+29/01/21 16:40:39 - Log Started
+16:40:41	-	  code -1073807346: VISA Flush I/O Buffer in Valco - Close.vi->Valco Valve Mngr.vi->Main.vi04/02/21 17:14:52 - Log Started
+04/02/21 17:14:52 - Log Started
+17:14:53	-	  code -1073807346: VISA Flush I/O Buffer in Valco - Close.vi->Valco Valve Mngr.vi->Main.vi17:15:36	-	  code 43: File Dialog6->Scripting Mngr.vi->Main.vi
