@@ -2,7 +2,7 @@
 /Logs/*
 /Reports/*
 ### Hide Build and Install Files
-/build/*
+###/build/*
 /Installer/*
 ### Hide excel files and zip files
 *.csv

@@ -1,0 +1,12 @@
+[Unit]
+Description=Maurice Near Field Communication Reader
+
+[Service]
+Type=simple
+User=cbuser
+ExecStart=/usr/share/nfc/bin/crossbar start --cbdir /home/cbuser/cellbio/nfc/crossbar
+
+[Install]
+RequiredBy=embedded-control
+WantedBy=multi-user.target
+

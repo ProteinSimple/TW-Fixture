@@ -1,0 +1,131 @@
+#!/usr/bin/env bash
+# Build a deb in an Ubuntu docker container.
+#
+# The deb is built in the context of "docker build". When docker creates an
+# image, it runs through the Dockerfile, making a new layer with line of the
+# Dockerfile. The command to build our software is the last line of the
+# Dockerfile, so once the Docker image is built, our deb is inside the Docker
+# image.
+#
+# Surprisingly, it is not straightforward to extract our deb from the docker
+# image. To do that, we use "docker create" to create a container from the
+# image, and "docker cp" to copy our deb from the container to the filesystem
+# outside of the image/container.
+#
+set -o errexit
+set -o nounset
+
+THIS_DIR="$( cd "$( dirname "$0" )" && pwd )"
+pushd "${THIS_DIR}"
+
+usage() {
+    echo "Usage: $0 [ -p VERSION_PREFIX ] [ -v ] TAG DEST_DIR"
+    echo "TAG           e.g. trusty-20190305, bionic-20190307"
+    echo "-v            verbose logging"
+}
+
+get_git_hash() {
+    hash=$(git rev-parse --short HEAD)
+    if is_working_directory_dirty; then
+        echo "${hash}.dirty"
+    else
+        echo "${hash}"
+    fi
+}
+
+get_version() {
+    echo "${VERSION_PREFIX}.$(get_git_hash)"
+}
+
+is_working_directory_dirty() {
+    test -n "$(git status --porcelain)"
+}
+
+VERSION_PREFIX="1.0"
+while getopts "hvp:" flag
+do
+    case $flag in
+    h)
+        usage
+        exit 1
+        ;;
+    p)
+        VERSION_PREFIX=$OPTARG
+        ;;
+    v)
+        set -o xtrace
+        export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+        ;;
+    \?)
+        # If getopts detects an invalid argument, it assigns flag to '?'.
+        usage
+        exit 1
+    esac
+done
+shift "$((OPTIND - 1))"
+
+if [ $# -lt 2 ]; then
+    echo "You did not supply enough arguments to $0."
+    usage
+    exit 1
+fi
+
+docker_tag="$1"
+dest_dir="$2"
+
+# Create a project name based on the current directory.
+#
+# We'd like to have a docker tag that gives you a clue as to the source of the
+# docker image, so that if something goes awry and you end up with 300 docker
+# images, you have a clue which project created them. Let's try using the name
+# of the current directory, but if that doesn't work out, we could probably
+# extract a name from `git remote -v`.
+#
+# The Jenkins Branch Source plugin creates directory names that have a variety
+# of formats:
+#
+#       proteinsimple_can2usb_pr-10-head@2
+#       _can2usb_add_slack_notifications
+#
+# But the rules for Docker tags are persnickety:
+#   https://docs.docker.com/engine/reference/commandline/tag/
+#
+# So let's remove all non-alphanumerics from the directory name to allow
+# them to be used as part of a docker tag name.
+project=$(basename "$PWD" | awk '{print tolower($0)}' | tr -cd "[:alnum:]")
+
+githash=$(git log -1 --pretty=%h)
+tag="${docker_tag}-${project}-${githash}"
+# Turn something like "trusty-20180704" into "trusty".
+distribution=$(echo "$docker_tag" | cut -d'-' -f1)
+
+image="${tag}.img"
+
+# These files may be created when running code or tests locally, but we don't
+# want to copy them into the container where they can cause reproducibility problems.
+rm -rf .cache .pytest_cache ./*.egg-info
+find . -name "SOURCES.txt" -delete
+find . -name "*.pyc" -delete
+
+# Build a docker image that contains the deb file we want.
+docker build \
+    --build-arg docker_tag="$docker_tag" \
+    --build-arg distribution="$distribution" \
+    --build-arg version="$(get_version)" \
+    --tag "${image}" \
+    .
+
+# Create a container from the image we just built. We only need the container
+# so that we can copy the deb file out of the image we just built.
+container=$(docker create "${image}")
+
+# Copy the deb file out of the container.
+docker cp "${container}:/dpkg/." "$dest_dir"
+
+# Copy the test report out of the container.
+docker cp "${container}:/workdir/test_report.xml" "$dest_dir"
+
+# Remove the container.
+docker rm -fv "${container}"
+
+popd

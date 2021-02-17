@@ -1,0 +1,2 @@
+debian/nfc.conf etc/init
+debian/cartridge_editor.conf etc/init
