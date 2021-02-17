@@ -993,7 +993,11 @@
 				<Property Name="DistPart[3].SoftDep[9].upgradeCode" Type="Str">{9872BBBA-FB96-42A4-80A2-9605AC5CBCF1}</Property>
 				<Property Name="DistPart[3].SoftDepCount" Type="Int">12</Property>
 				<Property Name="DistPart[3].upgradeCode" Type="Str">{D84FC73F-D1E0-4C05-A30C-DB882CD1ABD8}</Property>
-				<Property Name="DistPartCount" Type="Int">4</Property>
+				<Property Name="DistPart[4].flavorID" Type="Str">_full_</Property>
+				<Property Name="DistPart[4].productID" Type="Str">{AFDB5C72-F85F-4F01-8C7F-D61AA4756516}</Property>
+				<Property Name="DistPart[4].productName" Type="Str">NI-DAQmx Runtime with Configuration Support 20.0</Property>
+				<Property Name="DistPart[4].upgradeCode" Type="Str">{9856368A-ED47-4944-87BE-8EF3472AE39B}</Property>
+				<Property Name="DistPartCount" Type="Int">5</Property>
 				<Property Name="INST_author" Type="Str">ProteinSimple, Bio-Techne</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
 				<Property Name="INST_buildLocation" Type="Path">../Installer</Property>
@@ -1006,7 +1010,6 @@
 				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">20008014</Property>
 				<Property Name="MSI_arpCompany" Type="Str">ProteinSimple, Bio-Techne</Property>
-				<Property Name="MSI_autoselectDrivers" Type="Bool">true</Property>
 				<Property Name="MSI_distID" Type="Str">{EDAF90C0-11C4-4586-A6C5-CEC19C2885DB}</Property>
 				<Property Name="MSI_hideNonRuntimes" Type="Bool">true</Property>
 				<Property Name="MSI_osCheck" Type="Int">0</Property>
@@ -1017,7 +1020,7 @@
 				<Property Name="RegDestCount" Type="Int">1</Property>
 				<Property Name="Source[0].dest" Type="Str">{C2CF3240-29EF-4F0B-B39F-E052DEB7EDEE}</Property>
 				<Property Name="Source[0].File[0].dest" Type="Str">{C2CF3240-29EF-4F0B-B39F-E052DEB7EDEE}</Property>
-				<Property Name="Source[0].File[0].name" Type="Str">TW Fixture GUI 1_1_4_NFC.exe</Property>
+				<Property Name="Source[0].File[0].name" Type="Str">TW Fixture GUI 1_2_1.exe</Property>
 				<Property Name="Source[0].File[0].Shortcut[0].destIndex" Type="Int">1</Property>
 				<Property Name="Source[0].File[0].Shortcut[0].name" Type="Str">TW Fixture GUI</Property>
 				<Property Name="Source[0].File[0].Shortcut[0].subDir" Type="Str"></Property>
