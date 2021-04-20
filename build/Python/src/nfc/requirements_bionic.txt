@@ -1,4 +1,4 @@
-autobahn==19.7.1
+autobahn==20.12.3
 coverage==4.5.3
 crossbar==18.4.1
 flake8==3.7.8
