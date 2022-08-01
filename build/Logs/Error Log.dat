@@ -16,3 +16,16 @@
 17/02/21 12:03:56 - Log Started
 17/02/21 12:03:56 - Log Started
 12:04:00	-	  code -200088: DAQmx Stop Task.vi:3590001<append>
+02/08/21 17:00:28 - Log Started
+02/08/21 17:00:28 - Log Started
+17:01:26	-	  code -1073807346: VISA Flush I/O Buffer in Valco - Close.vi->Valco Valve Mngr.vi->Main.vi17:02:06	-	  code 6009: Delay with Cancel 2.vi<ERR>
+Cancelled
+
+
+<b>Complete call chain:</b>
+     Utilities.lvlib:Insert Error.vi
+     Delay with Cancel 2.vi
+     Scripting Mngr.vi
+     Run Script.vi
+     Process Mngr.vi
+     Main.vi
