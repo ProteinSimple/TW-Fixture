@@ -704,6 +704,10 @@
 				<Item Name="VISA Open Access Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Open Access Mode.ctl"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
+			<Item Name="16CH Data Array.vi" Type="VI" URL="../Hardware/16CH Data Array.vi"/>
+			<Item Name="16CH Denkovi Manager.vi" Type="VI" URL="../Hardware/16CH Denkovi Manager.vi"/>
+			<Item Name="16CH Denkovi Mngr.ctl" Type="VI" URL="../Hardware/16CH Denkovi Mngr.ctl"/>
+			<Item Name="16CH Relay Array.vi" Type="VI" URL="../Hardware/16CH Relay Array.vi"/>
 			<Item Name="Analyze Vacuum Transition.vi" Type="VI" URL="../Main/Analyze Vacuum Transition.vi"/>
 			<Item Name="Bottles.ctl" Type="VI" URL="../Lib/Time/Bottles.ctl"/>
 			<Item Name="Calculate Rate.vi" Type="VI" URL="../Main/Calculate Rate.vi"/>
@@ -716,7 +720,6 @@
 			<Item Name="Commands.ctl" Type="VI" URL="../Main/Commands.ctl"/>
 			<Item Name="Config Mngr.ctl" Type="VI" URL="../Main/Config Mngr.ctl"/>
 			<Item Name="Config Mngr.vi" Type="VI" URL="../Main/Config Mngr.vi"/>
-			<Item Name="Convert to InHg.vi" Type="VI" URL="../Main/Convert to InHg.vi"/>
 			<Item Name="Create Folder If Misssing.vi" Type="VI" URL="../Lib/File/Create Folder If Misssing.vi"/>
 			<Item Name="Create Summary File.vi" Type="VI" URL="../Main/Create Summary File.vi"/>
 			<Item Name="DAQ - Close.vi" Type="VI" URL="../Hardware/DAQ/DAQ - Close.vi"/>
@@ -766,6 +769,7 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="Password Popup.vi" Type="VI" URL="../Main/Password Popup.vi"/>
+			<Item Name="Pressure Output.ctl" Type="VI" URL="../Main/Pressure Output.ctl"/>
 			<Item Name="Pressure Point.ctl" Type="VI" URL="../Main/Pressure Point.ctl"/>
 			<Item Name="Process Mngr.ctl" Type="VI" URL="../Main/Process Mngr.ctl"/>
 			<Item Name="Process State.ctl" Type="VI" URL="../Main/Process State.ctl"/>
