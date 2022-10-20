@@ -394,9 +394,12 @@
 			<Item Name="Rinse Well X step2" Type="Document" URL="../../Scripts/Rinse Well X step2"/>
 			<Item Name="Rinse Well X step3" Type="Document" URL="../../Scripts/Rinse Well X step3"/>
 		</Item>
+		<Item Name="16CH Denkovi Manager.vi" Type="VI" URL="../Hardware/16CH Denkovi Manager.vi"/>
 		<Item Name="Cartridge Mngr.vi" Type="VI" URL="../Main/Cartridge Mngr.vi"/>
 		<Item Name="DAQ - Initialize.vi" Type="VI" URL="../Hardware/DAQ/DAQ - Initialize.vi"/>
+		<Item Name="DAQ Manager.vi" Type="VI" URL="../Hardware/DAQ Manager.vi"/>
 		<Item Name="Denkovi Manager.vi" Type="VI" URL="../Hardware/Denkovi Manager.vi"/>
+		<Item Name="FT_Get_Device_Description_By_Index.vi" Type="VI" URL="../Hardware/Denkovi Relay 8ch/D2XX_Functions_7.0/FT_Get_Device_Description_By_Index.vi"/>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="Process Mngr.vi" Type="VI" URL="../Main/Process Mngr.vi"/>
 		<Item Name="Scripting Mngr.vi" Type="VI" URL="../Main/Scripting Mngr.vi"/>
@@ -705,7 +708,6 @@
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
 			<Item Name="16CH Data Array.vi" Type="VI" URL="../Hardware/16CH Data Array.vi"/>
-			<Item Name="16CH Denkovi Manager.vi" Type="VI" URL="../Hardware/16CH Denkovi Manager.vi"/>
 			<Item Name="16CH Denkovi Mngr.ctl" Type="VI" URL="../Hardware/16CH Denkovi Mngr.ctl"/>
 			<Item Name="16CH Relay Array.vi" Type="VI" URL="../Hardware/16CH Relay Array.vi"/>
 			<Item Name="Analyze Vacuum Transition.vi" Type="VI" URL="../Main/Analyze Vacuum Transition.vi"/>
@@ -720,11 +722,11 @@
 			<Item Name="Commands.ctl" Type="VI" URL="../Main/Commands.ctl"/>
 			<Item Name="Config Mngr.ctl" Type="VI" URL="../Main/Config Mngr.ctl"/>
 			<Item Name="Config Mngr.vi" Type="VI" URL="../Main/Config Mngr.vi"/>
+			<Item Name="Convert to InHg.vi" Type="VI" URL="../Main/Convert to InHg.vi"/>
 			<Item Name="Create Folder If Misssing.vi" Type="VI" URL="../Lib/File/Create Folder If Misssing.vi"/>
 			<Item Name="Create Summary File.vi" Type="VI" URL="../Main/Create Summary File.vi"/>
 			<Item Name="DAQ - Close.vi" Type="VI" URL="../Hardware/DAQ/DAQ - Close.vi"/>
 			<Item Name="DAQ Globals.vi" Type="VI" URL="../Hardware/DAQ/DAQ Globals.vi"/>
-			<Item Name="DAQ Manager.vi" Type="VI" URL="../Hardware/DAQ Manager.vi"/>
 			<Item Name="DAQ Mngr.ctl" Type="VI" URL="../Hardware/DAQ Mngr.ctl"/>
 			<Item Name="Data Logger.vi" Type="VI" URL="../Main/Data Logger.vi"/>
 			<Item Name="Delay with Cancel 2.vi" Type="VI" URL="../Lib/Time/Delay with Cancel 2.vi"/>
@@ -741,7 +743,6 @@
 			<Item Name="Format Summary String.vi" Type="VI" URL="../Main/Format Summary String.vi"/>
 			<Item Name="FT_Close_Device.vi" Type="VI" URL="../Hardware/Denkovi Relay 8ch/D2XX_Functions_7.0/FT_Close_Device.vi"/>
 			<Item Name="FT_Get_Com_Port.vi" Type="VI" URL="../Hardware/Denkovi Relay 8ch/D2XX_Functions_7.0/FT_Get_Com_Port.vi"/>
-			<Item Name="FT_Get_Device_Description_By_Index.vi" Type="VI" URL="../Hardware/Denkovi Relay 8ch/D2XX_Functions_7.0/FT_Get_Device_Description_By_Index.vi"/>
 			<Item Name="FT_Open_Device.vi" Type="VI" URL="../Hardware/Denkovi Relay 8ch/D2XX_Functions_7.0/FT_Open_Device.vi"/>
 			<Item Name="FT_Read_Byte_Data.vi" Type="VI" URL="../Hardware/Denkovi Relay 8ch/D2XX_Functions_7.0/FT_Read_Byte_Data.vi"/>
 			<Item Name="FT_Reset_Device.vi" Type="VI" URL="../Hardware/Denkovi Relay 8ch/D2XX_Functions_7.0/FT_Reset_Device.vi"/>
