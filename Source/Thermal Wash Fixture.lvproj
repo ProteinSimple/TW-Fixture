@@ -395,14 +395,16 @@
 			<Item Name="Rinse Well X step3" Type="Document" URL="../../Scripts/Rinse Well X step3"/>
 		</Item>
 		<Item Name="16CH Denkovi Manager.vi" Type="VI" URL="../Hardware/16CH Denkovi Manager.vi"/>
+		<Item Name="Cart Type Check.vi" Type="VI" URL="../Main/Cart Type Check.vi"/>
 		<Item Name="Cartridge Mngr.vi" Type="VI" URL="../Main/Cartridge Mngr.vi"/>
 		<Item Name="DAQ - Initialize.vi" Type="VI" URL="../Hardware/DAQ/DAQ - Initialize.vi"/>
 		<Item Name="DAQ Manager.vi" Type="VI" URL="../Hardware/DAQ Manager.vi"/>
 		<Item Name="Denkovi Manager.vi" Type="VI" URL="../Hardware/Denkovi Manager.vi"/>
 		<Item Name="FT_Get_Device_Description_By_Index.vi" Type="VI" URL="../Hardware/Denkovi Relay 8ch/D2XX_Functions_7.0/FT_Get_Device_Description_By_Index.vi"/>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
-		<Item Name="Process Mngr.vi" Type="VI" URL="../Main/Process Mngr.vi"/>
+		<Item Name="Process Turbo.ctl" Type="VI" URL="../Main/Process Turbo.ctl"/>
 		<Item Name="Scripting Mngr.vi" Type="VI" URL="../Main/Scripting Mngr.vi"/>
+		<Item Name="SDS Process Mngr.vi" Type="VI" URL="../Main/SDS Process Mngr.vi"/>
 		<Item Name="Tecan Mngr.vi" Type="VI" URL="../Hardware/Tecan Mngr.vi"/>
 		<Item Name="Timing Specs.ctl" Type="VI" URL="../Main/Timing Specs.ctl"/>
 		<Item Name="Utilities.lvlib" Type="Library" URL="../Lib/Utilities.lvlib"/>
@@ -794,6 +796,7 @@
 			<Item Name="Time Left Calc.vi" Type="VI" URL="../Main/Time Left Calc.vi"/>
 			<Item Name="Tricon Mngr.ctl" Type="VI" URL="../Hardware/Tricon Mngr.ctl"/>
 			<Item Name="Tricon Wait until Finished.vi" Type="VI" URL="../Hardware/Tecan/Tricon Wait until Finished.vi"/>
+			<Item Name="Turbo Process Mngr.vi" Type="VI" URL="../Main/Turbo Process Mngr.vi"/>
 			<Item Name="Update 1 Cart Status.vi" Type="VI" URL="../Main/Update 1 Cart Status.vi"/>
 			<Item Name="Update Cart Status.vi" Type="VI" URL="../Main/Update Cart Status.vi"/>
 			<Item Name="Update Single Cart.ctl" Type="VI" URL="../Main/Update Single Cart.ctl"/>
