@@ -13,7 +13,7 @@ setuptools==41.0.1
 txaio==18.8.1
 tzlocal==2.0.0
 virtualenv==16.6.2
-wheel==0.33.4
+wheel==0.38.1
 zope.interface==4.6.0
 ## The following requirements were added by pip freeze:
 argh==0.26.2
